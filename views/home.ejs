@@ -1,8 +1,28 @@
 
 <h1> Enter / main page</h1>
 
+ 
+
+
+
 <section id="feed_posts">
     <h4>posts</h4>
-    <form action=""></form>
+    <form action="/posts/create" id="feed-post-form" method="post">
+        <textarea name="content" cols="30" rows="3" placeholder="Type here..."></textarea>
+        <input type="submit" value="Post">
+    </form>
 
 </section>
+
+<ol>
+    <%for(var i of posts){%>            
+      <li>             
+          <div  style="display: flex; align-items: center; justify-content: space-around;">
+            <span ><%=i.content%></span>
+            <span><%=i.user.name%></span>
+          </div>             
+          
+    </li>           
+    <%}%>    
+
+</ol>

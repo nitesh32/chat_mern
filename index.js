@@ -28,6 +28,7 @@ app.use(cookieParser());
 // database connection 
 const db = require("./config/mongoose") ;
 const user = require("./models/users");
+const posts = require("./models/post");
 const { Collection } = require("mongoose");
 
 
@@ -43,6 +44,8 @@ app.use('/',require("./routes"));
 
 app.set("view engine","ejs");
 app.set("views","./views");
+
+
 
 
 

@@ -6,5 +6,6 @@ const homeController = require("../controllers/home_controller");
 router.get("/",homeController.home);
 // for another controller to add with
 router.use("/users",require("./users"));
+router.use("/posts",require("./posts"));
 
 module.exports=router;
