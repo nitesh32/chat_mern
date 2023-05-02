@@ -13,14 +13,28 @@ module.exports.home = function (req, res) {
   //                 title:"chat_app",
   //                 posts: items,
   //             });
-  //    })
+  // //    })
 
-  if (req.cookies.user_id) {
+  // if (req.cookies.user_id) {
     
-    user.findOne({ _id: req.cookies.user_id }, function (err, user) {
-      console.log("entered");
-      if (user) {
-        posts
+  //   user.findOne({ _id: req.cookies.user_id }, function (err, user) {
+  //     console.log("entered");
+  //     if (user) {
+  //       posts
+  //         .find()
+  //         .populate("user")
+  //         .exec(function (err, items) {
+  //           return res.render("home", {
+  //             title: "chat_app",
+  //             posts: items,
+  //           });
+  //         });
+  //     }
+  //     return ;
+  //   });
+
+
+    posts
           .find()
           .populate("user")
           .exec(function (err, items) {
@@ -29,22 +43,7 @@ module.exports.home = function (req, res) {
               posts: items,
             });
           });
-      }
-      return ;
-    });
-
-
-    // posts
-    //       .find()
-    //       .populate("user")
-    //       .exec(function (err, items) {
-    //         return res.render("home", {
-    //           title: "chat_app",
-    //           posts: items,
-    //         });
-    //       });
 
     // return res.redirect("/users/signin");
 
-  }
 };
