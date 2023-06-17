@@ -1,0 +1,14 @@
+header{
+    background-color: rgb(219, 255, 182);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+     #sign_in_bar{
+         width: 20%;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-between;
+     }
+}

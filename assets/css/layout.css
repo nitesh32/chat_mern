@@ -2,7 +2,7 @@ body {
   margin: 0;
   text-align: center; }
   body #divlayout {
-    color: burlywood;
-    height: 100%; }
+    color: black;
+    height: inherit; }
   body h1 {
     background-color: aqua; }

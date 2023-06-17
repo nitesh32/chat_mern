@@ -1,14 +1,16 @@
 const posts = require("../models/post");
-const user = require("../models/users");
+const User = require("../models/users");
 
-module.exports.home = function (req, res) {
+// async await query 
+module.exports.home = async function (req, res) {
   res.cookie("new",67);
 
   if (req.cookies.user_id) {
-    
-    user.findOne({ _id: req.cookies.user_id }, function (err, user) {
-      if (user) {
-        posts
+    try{
+    let user = await User.findOne({ _id: req.cookies.user_id } );
+      if (user) {}
+
+        let items= await posts
           .find({})
           .populate('user')
           .populate({
@@ -17,20 +19,24 @@ module.exports.home = function (req, res) {
               path:'user'
             }
           })
-          .exec(function (err, items) {
-            return res.render("home", {
+          
+        let users= await User.find({})
+        return res.render("home", {
               title: "chat_app",
               posts: items,
               user :user,
-            });
-          });
+              all_users :users
+        });
       }
-      return ;
-    });
-  }
-    else{
+      catch(err){
+        console.log("errrr",err);
+        return ;
+      }
+
+    } 
+  else{
     return res.redirect("/users/signin");
-    }
+  }
 
 };
 

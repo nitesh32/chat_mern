@@ -1,0 +1,25 @@
+#home-container{
+    display: flex;
+    #post-container{
+        #feed_posts{
+            height: 200px;
+            background-color: antiquewhite;
+        }
+        #post-content-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: flex-start;
+        }
+        background-color: beige;
+        width: 70%;
+        padding: 10px;
+    }
+
+    #friends-container{
+        width: 30%;
+        padding: 10px;
+        background-color: rgb(147, 255, 255);
+        border-left: 1px solid grey;
+    }
+}

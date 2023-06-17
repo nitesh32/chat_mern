@@ -1,0 +1,15 @@
+<H1>profile page of user</H1>
+<%if(user.id==opener_user){%>
+    <form action="/users/update/<%=opener_user%>" method="post">
+        <input type="text" name="name" placeholder="Update name" required>
+        <input type="email" name="email" placeholder="update email" required>
+        <input type="submit" name="update profile">
+    </form>
+
+<%}else{%>
+
+    <p>Name : <%= user.name %></p>
+    <p>Email : <%= user.email %></p>
+
+<%}%>
+

@@ -1,0 +1,19 @@
+#home-container {
+  display: flex; }
+  #home-container #post-container {
+    background-color: beige;
+    width: 70%;
+    padding: 10px; }
+    #home-container #post-container #feed_posts {
+      height: 200px;
+      background-color: antiquewhite; }
+    #home-container #post-container #post-content-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: flex-start; }
+  #home-container #friends-container {
+    width: 30%;
+    padding: 10px;
+    background-color: #93ffff;
+    border-left: 1px solid grey; }
