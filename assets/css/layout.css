@@ -3,6 +3,6 @@ body {
   text-align: center; }
   body #divlayout {
     color: black;
-    height: inherit; }
+    height: 100%; }
   body h1 {
     background-color: aqua; }

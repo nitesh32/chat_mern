@@ -1,0 +1,46 @@
+<%for(var i of posts){  %> 
+    <li id="post-<%= i._id %>">             
+        <div id="post-content-container">
+          <h4><%=i.content%></h4>
+          <span><%=i.user.name%></span>
+          <% if (locals.user &&locals.user.id==i.user.id){%> 
+          <form action="/posts/destroy" class="delete-post-button" method="post">
+              <input type="hidden" name="id" value="<%=i._id%>">
+              <input type="submit" value="delete post">
+          </form>
+          <%} %> 
+          
+        </div> 
+        <% if(locals.user){%>      
+        <form action="/comments/create_comment" id="comment_post" method="post">
+          <textarea name="content" placeholder="Type here..." required></textarea>
+          <input type="hidden" name="post" value="<%=i._id%>">
+          <input type="submit" value="create comment">
+      </form>
+      <%}%>
+      <div class="post-comments-list">
+          <ul id="post-comments-<%=i._id%>">
+              <%for(var j of i.comments){%>
+                  <p>
+                      <%= j.content%>
+                      <br>
+                      <small>
+                          <%= j.user.name %>
+                      </small>
+                      <%if(j.user.id==locals.user.id||locals.user.id==i.user.id){%>
+                      <form action="/comments/delcomment" method="post">
+                          <input type="hidden" name="id_user" value="<%=j.user.id%>">
+                          <input type="hidden" name="id_com" value="<%=j.id%>">
+                          <input type="hidden" name="post_user" value="<%=i.user._id%>">
+                          <input type="submit" value="delete comment">
+                      </form>
+                      <%}%>
+                  </p>
+              <%}%>
+    
+          </ul>
+    
+      </div>
+    
+    </li> 
+    <%}%>
